@@ -12,12 +12,12 @@
     <div class="sidebar">
         <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
         <nav class="nav-menu">
-            <a href="template/home">Início</a>
-            <a href="template/usuarios">Usuários</a>
-            <a href="template/financas">Finanças</a>
-            <a href="template/reservas">Reservas</a>
-            <a href="template/comunicados">Comunicados</a>
-            <a href="template/logout" class="logout-button">Sair</a>
+            <a href="{{ url_for('home') }}">Início</a>
+            <a href="{{ url_for('usuarios') }}">Usuários</a>
+            <a href="{{ url_for('financas') }}">Finanças</a>
+            <a href="{{ url_for('reservas') }}">Reservas</a>
+            <a href="{{ url_for('comunicados') }}">Comunicados</a>
+            <a href="{{ url_for('logout') }}" class="logout-button">Sair</a>
         </nav>
     </div>
     <main>
@@ -58,10 +58,13 @@
             </div>
         </div>
     </main>
+</div>
     <script>
         function toggleSidebar() {
             const sidebar = document.querySelector('.sidebar');
-            sidebar.classList.toggle('active');
+            const main = document.querySelector('main');
+            sidebar.classList.toggle('collapsed');
+            main.classList.toggle('collapsed');
         }
     </script>
 </body>
